@@ -9,7 +9,7 @@ class Aresta {
 
 public class ClienteMatrizAdjacencia {
 
-    static int numeroVertices = 6;
+    static int numeroVertices = 12;
 
     public static void main(String[] args) {
         Aresta[][] matriz = new Aresta[numeroVertices][numeroVertices];

@@ -16,18 +16,16 @@ public class ClienteMatrizAdjacencia {
 
         ligarMatriz(matriz);
 
-        System.out.println("Sem aresta: ");
-        print(matriz);
-
-        (matriz[0][1]).valor = 1;
-        (matriz[0][5]).valor = 1;
-        (matriz[1][0]).valor = 1;
-        (matriz[1][5]).valor = 1;
-        (matriz[2][4]).valor = 1;
-        (matriz[3][1]).valor = 1;
-        (matriz[5][3]).valor = 1;
-
-        System.out.println("Com arestas: ");
+        (matriz[3][8]).valor = 1;
+        (matriz[3][10]).valor = 1;
+        (matriz[5][11]).valor = 1;
+        (matriz[7][11]).valor = 1;
+        (matriz[7][8]).valor = 1;
+        (matriz[11][2]).valor = 1;
+        (matriz[11][9]).valor = 1;
+        (matriz[11][10]).valor = 1;
+        (matriz[8][9]).valor = 1;
+        
         print(matriz);
 
     }
@@ -41,7 +39,7 @@ public class ClienteMatrizAdjacencia {
     }
 
     static void print(Aresta[][] matriz) {
-        System.out.println("-  0 1 2 3 4 5 -");
+        System.out.println("-  0 1 2 3 4 5 6 7 8 9 10 11 -");
         for (int i = 0; i < numeroVertices; i++) {
             System.out.print(i + ": ");
             for (int j = 0; j < numeroVertices; j++) {

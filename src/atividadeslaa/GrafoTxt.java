@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class GrafoTxt {
 
-    static int numeroVertice = 80000;
+    static int numeroVertice = 5000;
 
     public static void main(String[] args) {
         Scanner in;
@@ -18,7 +18,8 @@ public class GrafoTxt {
             in = new Scanner(new FileReader("com-friendster.top5000.cmty.txt"));
             while (in.hasNextLine()) {
                 String line = in.nextLine();
-                listas[0].add(line);
+                listas[indice].add(line);
+                indice++;
             }
             print(listas);
         } catch (FileNotFoundException e) {
@@ -34,9 +35,8 @@ public class GrafoTxt {
 
     static void print(LinkedList[] listas) {
         for (int i = 0; i < numeroVertice; i++) {
-            System.out.print(i + ": ");
             for (int j = 0; j < listas[i].size(); j++) {
-                System.out.print(listas[i].get(j) + " ");
+                System.out.print(listas[i].get(j));
             }
             System.out.println();
         }

@@ -21,10 +21,10 @@ public class GrafoTxt {
                 String line = in.nextLine();
                 String array[] = line.split("\t");
                 numb[indice] = array[0];
-                for (int i = 0; i < array.length - 2; i++) {
-                    listas[indice].add(array[i + 1]);
+                for (int i = 1; i < array.length; i++) {
+                    listas[indice].add(array[i]);
                 }
-                indice++;
+                indice++;   
             }
             print(listas, numb);
         } catch (FileNotFoundException e) {

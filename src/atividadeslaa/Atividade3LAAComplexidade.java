@@ -7,12 +7,13 @@ import java.util.Scanner;
 
 public class Atividade3LAAComplexidade {
 
-    static int numeroVertice = 30000;
+    static int numeroLinhas = 30000;
 
     public static void main(String[] args) {
         Scanner in;
-        LinkedList[] listas = new LinkedList[numeroVertice];
-        String[] numb = new String[30000];
+        //Os vertices de saída foram salvos em uma estrutura(numb) de dados e os de entrada em outro(listas) 
+        LinkedList[] listas = new LinkedList[numeroLinhas];
+        String[] numb = new String[numeroLinhas];
         int indice = 0;
         ligarListas(listas);
         try {
@@ -26,40 +27,47 @@ public class Atividade3LAAComplexidade {
                 }
                 indice++;
             }
-            numeroVerticesTotais(listas);
-            print(listas, numb);
-            complexidade(listas);
+            int numeroVertices = numeroVerticesTotais(numb);
+            
+            //print(listas, numb);
+            
+            complexidade(listas,numeroVertices);
+            
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
     }
 
     static void ligarListas(LinkedList[] listas) {
-        for (int i = 0; i < numeroVertice; i++) {
+        for (int i = 0; i < numeroLinhas; i++) {
             listas[i] = new LinkedList();
         }
     }
 
-    static void numeroVerticesTotais(LinkedList[] listas) {
+    static int numeroVerticesTotais(String[] listas) {
         int vertices = 0;
-        for (int i = 0; i < numeroVertice; i++) {
-            vertices += listas[i].size();
+        for (int i = 0; i < listas.length; i++) {
+            vertices ++;
         }
-        System.out.println("O grafo possui " + vertices + " vértices ao total");
+        System.out.println("O grafo possui " + vertices + " vértices de saída");
+        return  vertices;
     }
 
     static void print(LinkedList[] listas, String numb[]) {
-        for (int i = 0; i < numeroVertice; i++) {
+        for (int i = 0; i < numeroLinhas; i++) {
             System.out.println(numb[i] + " tem " + listas[i].size() + " vértices adjacentes");
             System.out.println();
         }
     }
 
-    static void complexidade(LinkedList[] listas) {
+    static void complexidade(LinkedList[] listas,int numeroVertices) {
         int complexidade = 0;
-        for (int i = 0; i < numeroVertice; i++) {
-            complexidade += listas[i].size() + (listas[i].size() + 1);
+        for (int i = 0; i < numeroLinhas; i++) {
+            /*listas[i].size() são os números de arestas pois os 
+            vétices de entrada(LinkedList) são formam uma aresta cada com os de saída(numb)*/
+            complexidade += listas[i].size();
         }
+        complexidade += numeroVertices;
         System.out.println("O grafo possui complexidade " + complexidade);
     }
 }

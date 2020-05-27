@@ -26,6 +26,7 @@ public class Atividade3LAAComplexidade {
                 }
                 indice++;
             }
+            numeroVerticesTotais(listas);
             print(listas, numb);
             complexidade(listas);
         } catch (FileNotFoundException e) {
@@ -39,6 +40,14 @@ public class Atividade3LAAComplexidade {
         }
     }
 
+    static void numeroVerticesTotais(LinkedList[] listas) {
+        int vertices = 0;
+        for (int i = 0; i < numeroVertice; i++) {
+            vertices += listas[i].size();
+        }
+        System.out.println("O grafo possui " + vertices + " vértices ao total");
+    }
+
     static void print(LinkedList[] listas, String numb[]) {
         for (int i = 0; i < numeroVertice; i++) {
             System.out.println(numb[i] + " tem " + listas[i].size() + " vértices adjacentes");
@@ -49,8 +58,8 @@ public class Atividade3LAAComplexidade {
     static void complexidade(LinkedList[] listas) {
         int complexidade = 0;
         for (int i = 0; i < numeroVertice; i++) {
-            complexidade += listas[i].size() + (listas[i].size()+1);
+            complexidade += listas[i].size() + (listas[i].size() + 1);
         }
-        System.out.println("O grafo possui complexidade "+complexidade);
+        System.out.println("O grafo possui complexidade " + complexidade);
     }
 }

@@ -11,9 +11,9 @@ public class Atividade3LAAComplexidade {
 
     public static void main(String[] args) {
         Scanner in;
-        //Os vertices de saída foram salvos em uma estrutura(numb) de dados e os de entrada em outro(listas) 
+        //Os vertices de saída foram salvos em uma estrutura(verticesSaida) de dados e os de entrada em outro(listas) 
         LinkedList[] listas = new LinkedList[numeroLinhas];
-        String[] numb = new String[numeroLinhas];
+        String[] verticesSaida = new String[numeroLinhas];
         int indice = 0;
         ligarListas(listas);
         try {
@@ -21,15 +21,15 @@ public class Atividade3LAAComplexidade {
             while (in.hasNextLine()) {
                 String line = in.nextLine();
                 String array[] = line.split("\t");
-                numb[indice] = array[0];
+                verticesSaida[indice] = array[0];
                 for (int i = 1; i < array.length; i++) {
                     listas[indice].add(array[i]);
                 }
                 indice++;
             }
-            int numeroVertices = numeroVerticesTotais(numb);
+            int numeroVertices = numeroVerticesTotais(verticesSaida);
             
-            //print(listas, numb);
+            print(listas, verticesSaida);
             
             complexidade(listas,numeroVertices);
             
@@ -44,18 +44,18 @@ public class Atividade3LAAComplexidade {
         }
     }
 
-    static int numeroVerticesTotais(String[] listas) {
+    static int numeroVerticesTotais(String[] verticesSaida) {
         int vertices = 0;
-        for (int i = 0; i < listas.length; i++) {
+        for (int i = 0; i < verticesSaida.length; i++) {
             vertices ++;
         }
         System.out.println("O grafo possui " + vertices + " vértices de saída");
         return  vertices;
     }
 
-    static void print(LinkedList[] listas, String numb[]) {
+    static void print(LinkedList[] listas, String verticesSaida[]) {
         for (int i = 0; i < numeroLinhas; i++) {
-            System.out.println(numb[i] + " tem " + listas[i].size() + " vértices adjacentes");
+            System.out.println(verticesSaida[i] + " tem " + listas[i].size() + " vértices adjacentes");
             System.out.println();
         }
     }

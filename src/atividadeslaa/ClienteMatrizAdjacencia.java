@@ -1,7 +1,9 @@
 package atividadeslaa;
 
 class Aresta {
+
     int valor;
+
     Aresta() {
         this.valor = 0;
     }
